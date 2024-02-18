@@ -2,8 +2,9 @@
   "name": "treehacks",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://03f18ec6-5c64-4601-a7c0-abf60a96149b.monsterapi.ai",
+  "proxy": "https://23c0047b-044d-4b61-8822-91d103c68f85.monsterapi.ai",
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.5.1",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -12,6 +13,8 @@
     "monsterapi": "^0.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-icons": "^5.0.1",
+    "react-router-dom": "^6.22.1",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },

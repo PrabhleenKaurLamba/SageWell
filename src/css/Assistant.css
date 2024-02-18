@@ -1,0 +1,201 @@
+.home-page {
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: flex-start; /* Align content to the top */
+min-height: 100vh; /* Use min-height instead of height to ensure content fits within the viewport */
+background-color: #2B2C33; /* Space Grey background */
+}
+.logo-container {
+position: absolute;
+top: 30px; /* Adjust top position as needed */
+left: 30px; /* Adjust left position as needed */
+cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+.logo {
+width: 70px; /* Adjust width as needed */
+height: auto; /* Maintain aspect ratio */
+}    
+
+.title-container2 {
+    margin-top: 20px; /* Reduce the top margin to bring the title closer to the logo */
+    display: flex;
+    justify-content: center;
+}
+
+.title2 {
+    font-family: 'Kode Mono', monospace;
+    background-image: linear-gradient(to right, orange, purple, rgb(57, 57, 176));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-size: 2rem;
+    text-align: center;
+    max-width: 100%; /* Adjust the max-width as needed */
+    font-weight: bold;
+    white-space: nowrap; /* Prevent line breaks */
+}
+
+
+
+.subtitle {
+margin-top: 20px;
+font-family: 'Kode Mono', monospace;
+font-size: 0.8rem;
+color: grey; /* White text color */
+font-weight: lighter; /* Adjust font weight for the subtitle */
+}
+
+.footer {
+background-color: #2B2C33;
+font-family: 'Kode Mono', monospace;
+color: #ffffff; 
+text-align: center;
+padding: 20px 0; 
+position: fixed; 
+width: 100%; 
+bottom: 0; 
+}
+
+.input-container {
+    position: fixed;
+    bottom: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #38393e;
+    border-radius: 10px;
+    width: 35%;
+}
+
+.input-container p {
+    margin: 0; /* Remove default margin */
+    padding: 10px; /* Add padding to the text */
+    flex-grow: 1; /* Allow the text to take up remaining space */
+    color: #ffffff;
+}
+
+.record-button, .send-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    padding: 5px;
+}
+
+.record-button:hover {
+    color: #666; /* Darker gray color on hover */
+}
+.send-button:hover {
+    color: greenyellow; /* Change color to red when recording */
+}
+
+.record-button.recording {
+    color: red; /* Change color to red when recording */
+}
+
+.audio-input {
+    position: relative; /* Change to relative positioning */
+    margin-bottom: 20px; /* Add margin between the two boxes */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    background-color: #38393e;
+    border-radius: 10px;
+    width: 60%;
+    height: auto;
+}
+
+.audio-input p {
+    margin: 0; /* Remove default margin */
+    padding: 10px; /* Add padding to the text */
+    color: #ffffff;
+    width: 90%;
+    word-wrap: break-word; /* Wrap long words */
+    line-height: 25px; /* Adjust the line height to add spacing between lines */
+}
+
+.audio-input p strong {
+    font-weight: bold; /* Make the text bold */
+}
+
+.text-output {
+    position: relative; /* Change to relative positioning */
+    margin-bottom: 20px; /* Add margin between the two boxes */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    background-color: #38393e;
+    border-radius: 10px;
+    width: 60%;
+    height: auto;
+}
+
+.text-output p {
+    margin: 0; /* Remove default margin */
+    padding: 10px; /* Add padding to the text */
+    color: #ffffff;
+    width: 90%;
+    word-wrap: break-word; /* Wrap long words */
+    line-height: 25px; /* Adjust the line height to add spacing between lines */
+}
+
+.text-output p strong {
+    font-weight: bold; /* Make the text bold */
+}
+
+.audio-output {
+    position: relative; /* Change to relative positioning */
+    margin-bottom: 20px; /* Add margin between the two boxes */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    background-color: #38393e;
+    border-radius: 10px;
+    width: 60%;
+    height: auto;
+}
+
+.audio-output p {
+     margin: 0; /* Remove default margin */
+    padding: 10px; /* Add padding to the text */
+    color: #ffffff;
+    width: 90%;
+    word-wrap: break-word; /* Wrap long words */
+    line-height: 25px; /* Adjust the line height to add spacing between lines */
+}
+
+
+.text-container {
+    flex-basis: 100%; /* Take up full width */
+    order: 1; /* Make sure the text container appears before the button container */
+}
+
+.button-container {
+    flex-basis: 100%; /* Take up full width */
+    order: 2; /* Make sure the button container appears after the text container */
+    margin-top: 20px; /* Adjust as needed for spacing */
+}
+
+.audio-output p strong {
+    font-weight: bold; /* Make the text bold */
+}
+
+.text-to-speech-button {    
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    color: black;
+    outline: none;
+    padding: 0;
+    transition: color 0.2s;
+  }
+  .text-to-speech-button:hover {
+    color: red; /* Change to your preferred hover color */
+  }
