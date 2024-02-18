@@ -90,6 +90,7 @@ const MyComponent = () => {
       } else {
         finalText = desiredText;
       }
+      finalText = str.replace(/\/n/g, "");
       setApiResponse(finalText);
 
     } catch (error) {
