@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import MonsterApiClient from 'monsterapi';
 import MicRecorder from 'mic-recorder-to-mp3';
 import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage'; // Import Firebase storage functions directly
@@ -8,6 +8,7 @@ const recorder = new MicRecorder({ bitRate: 128 });
 
 const MyComponent = () => {
   const [transcribedText, setTranscribedText] = useState('');
+  const [apiResponse, setApiResponse] = useState('');
   const client = new MonsterApiClient('eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6IjFlODhiM2NmZjliNTI2OWUzY2QwNjU2Njk3NGRiZTNmIiwiY3JlYXRlZF9hdCI6IjIwMjQtMDItMTdUMDg6NDM6MDcuMjg3MjIzIn0.-nT-sdCXr2yzh5EAIdMl3aqWUIqU4TU_lSlA56Ybxeg'); // Replace 'your-api-key' with your actual Monster API key
 
   const startRecording = () => {
@@ -35,7 +36,7 @@ const MyComponent = () => {
       const audioURL = await getDownloadURL(audioRef);
       
       // Define model and input data for transcription
-      const model = 'whisper'; // Replace with the desired model name
+      const model = 'whisper';
       const input = {
         file: audioURL, // Use the URL of the recorded audio file
         diarize: false,
@@ -49,7 +50,46 @@ const MyComponent = () => {
       // Transcribe the recorded audio
       const response = await client.generate(model, input);
       setTranscribedText(response.text);
-      console.log(response)
+      console.log(response);
+
+      // Send the transcribed text to the Monster API
+      const requestBody = {
+        input_variables: {
+          prompt: response.text // Using the transcribed text as the prompt
+        },
+        stream: false,
+        n: 1,
+        temperature: 0,
+        max_tokens: 256
+      };
+      const authKey = '0b5c7ee3-ce2f-4f4b-a87b-0cb84fa81061';
+
+      const monsterApiResponse = await fetch('/generate', {
+        method: 'POST',
+        headers: {
+          'accept': 'application/json',
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${authKey}` // Include the auth key in the Authorization header
+        },
+        body: JSON.stringify(requestBody)
+      });
+
+      const monsterApiData = await monsterApiResponse.json();
+      const startIndex = monsterApiData.indexOf("###Tags:");  
+      var desiredText = monsterApiData.substring(startIndex+9);
+      const removeQuestionMark = desiredText.indexOf('?');
+      if (removeQuestionMark !== -1) {
+        desiredText = desiredText.substring(removeQuestionMark + 1, desiredText.length);
+      }
+      const lastPeriodIndex = desiredText.lastIndexOf('.');
+      var finalText;
+      if (lastPeriodIndex !== -1) {
+        finalText = desiredText.substring(0, lastPeriodIndex + 1);
+      } else {
+        finalText = desiredText;
+      }
+      setApiResponse(finalText);
+
     } catch (error) {
       console.error('Error:', error);
     }
@@ -61,6 +101,7 @@ const MyComponent = () => {
       <button onClick={startRecording}>Start Recording</button>
       <button onClick={stopRecording}>Stop Recording</button>
       {transcribedText && <div>Transcribed Text: {transcribedText}</div>}
+      {apiResponse && <div>Response from Monster API: {apiResponse}</div>}
     </div>
   );
 };
