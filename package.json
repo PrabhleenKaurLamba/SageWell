@@ -2,7 +2,7 @@
   "name": "treehacks",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://a6e8daa8-74d6-484c-ae66-efdbd6268a2d.monsterapi.ai",
+  "proxy": "https://03f18ec6-5c64-4601-a7c0-abf60a96149b.monsterapi.ai",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
