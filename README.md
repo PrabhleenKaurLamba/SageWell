@@ -1,6 +1,6 @@
 # SageWell, an AI-powered Medical Assistant for the Elderly
 
-https://devpost.com/software/sagewell?ref_content=my-projects-tab&ref_feature=my_projects
+https://devpost.com/software/sagewell
 
 https://youtu.be/y6nkSYeK0pA
 
