@@ -1,6 +1,6 @@
-# Welcome to SageWell, an AI-powered Medical Assistant for the Elderly
+# SageWell, an AI-powered Medical Assistant for the Elderly
 
-## We believe in accessibility of AI for all age groups!
+https://devpost.com/software/sagewell?ref_content=my-projects-tab&ref_feature=my_projects
 
 https://youtu.be/y6nkSYeK0pA
 
