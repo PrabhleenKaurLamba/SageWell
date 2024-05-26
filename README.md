@@ -1,4 +1,4 @@
-# SageWell, an AI-powered Medical Assistant for the Elderly
+# SageWell, an AI-powered Medical Assistant for the Elderly | Stanford TreeHacks 2024 Prize Winner
 
 https://devpost.com/software/sagewell
 
